@@ -1,2 +1,2 @@
-# probizawards2026
-probizawards2026
+# ProBizawards
+ProBiz awards
