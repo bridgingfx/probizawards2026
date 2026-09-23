@@ -3,16 +3,20 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NominationReceived;
 use App\Models\Nomination;
 use App\Models\WebmasterSection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class NominationController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        // The public nomination form must work for guests; only the
+        // admin listing (index) requires login.
+        $this->middleware('auth')->except('store');
     }
 
     public function index()
@@ -88,9 +92,27 @@ class NominationController extends Controller
         $validated['commercial_state'] = 'not_offered';
         $validated['result_state'] = 'not_evaluated';
 
-        Nomination::create($validated);
+        $nomination = Nomination::create($validated);
 
-        return redirect()->back()->with('success', 'Your nomination has been received. Please check your email for your reference number. Reference: ' . $validated['reference_id']);
+        // Send the confirmation email the success message promises.
+        // A mail failure must never lose the nomination, so it is caught and logged.
+        $emailSent = false;
+        try {
+            Mail::to($validated['email'])->send(new NominationReceived($nomination));
+            $emailSent = true;
+        } catch (\Throwable $e) {
+            \Log::warning('Nomination confirmation email failed', [
+                'reference_id' => $validated['reference_id'],
+                'error' => $e->getMessage(),
+            ]);
+        }
+
+        $message = 'Your nomination has been received. Reference: ' . $validated['reference_id'] . '.';
+        if ($emailSent) {
+            $message .= ' A confirmation email is on its way to ' . $validated['email'] . '.';
+        }
+
+        return redirect()->back()->with('success', $message);
     }
 
     private function referenceId(): string

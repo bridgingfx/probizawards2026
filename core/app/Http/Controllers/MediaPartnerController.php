@@ -15,7 +15,7 @@ class MediaPartnerController extends Controller
             'email' => 'required|email|max:255',
             'category' => 'required|string|in:Coverage Themes,Promotion,Confirmed Media Partners',
             'website' => 'nullable|url|max:255',
-            'logo' => 'required|file|mimes:jpg,jpeg,png,webp,svg|max:4096',
+            'logo' => 'required|file|mimes:jpg,jpeg,png,webp|max:4096',
             'message' => 'nullable|string|max:3000',
         ]);
 

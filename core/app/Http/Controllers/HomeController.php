@@ -1165,11 +1165,23 @@ class HomeController extends Controller
 
     public function website_status()
     {
+        // Never interfere with CLI (artisan commands, queues, tests):
+        // resolving this controller must not print output or exit.
+        if (app()->runningInConsole()) {
+            return;
+        }
+
         // Check the website Status
         if (!Auth::check()) {
-            $site_status = Helper::GeneralSiteSettings("site_status");
-            if ($site_status == 0) {
-                echo view("frontEnd.closed", ["close_message" => Helper::GeneralSiteSettings("close_msg")])->render();
+            try {
+                $settings = Setting::find(1);
+            } catch (\Throwable $e) {
+                // Database not migrated yet (fresh install) — let the request continue.
+                return;
+            }
+            // Only show the closed page when a settings row positively says the site is closed.
+            if ($settings && $settings->site_status == 0) {
+                echo view("frontEnd.closed", ["close_message" => $settings->close_msg ?? ""])->render();
                 exit();
             }
         }

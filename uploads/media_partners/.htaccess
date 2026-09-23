@@ -1,5 +1,5 @@
-# Block direct execution of scripts in the uploads tree.
-# Uploaded files (images, documents) must never run as code.
+# Media partner logos land here via public form upload.
+# They must be served as static files only — never executed.
 
 Options -Indexes
 
