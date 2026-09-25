@@ -214,9 +214,16 @@ class ProBizPageController extends Controller
         ]);
     }
 
-    public function contact()
+    public function insightAwardsStrategy()
     {
-        return view('frontEnd.probiz_pages.contact', $this->baseData() + [
+        return view('frontEnd.probiz_pages.insight-article', $this->baseData() + [
+            'metaTitle' => 'Why Smart UAE Businesses Treat Awards as Strategy, Not Souvenirs | ProBiz Awards 2026 Dubai',
+            'metaDescription' => 'Award winners report 63% turnover growth and 85% of consumers check awards before buying. What the UAE\'s 2026 awards season teaches ambitious businesses.',
+        ]);
+    }
+
+    public function contact()
+    {        return view('frontEnd.probiz_pages.contact', $this->baseData() + [
             'metaTitle' => 'Contact ProBiz Awards | Enquiries & Support',
             'metaDescription' => 'Contact the ProBiz team about nominations, finalist participation, sponsorship, media and gala attendance.',
         ]);

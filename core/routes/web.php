@@ -46,6 +46,7 @@ Route::get('/sponsors', [ProBizPageController::class, 'sponsors'])->name('probiz
 Route::get('/media-partners', [ProBizPageController::class, 'mediaPartners'])->name('probiz.media-partners');
 Route::get('/gallery', [ProBizPageController::class, 'gallery'])->name('Gallery');
 Route::get('/gala-night', [ProBizPageController::class, 'gala'])->name('probiz.gala');
+Route::get('/insights/awards-strategy-uae-2026', [ProBizPageController::class, 'insightAwardsStrategy'])->name('probiz.insight-awards-strategy');
 Route::get('/contact', [ProBizPageController::class, 'contact'])->name('probiz.contact');
 Route::get('/faq', [ProBizPageController::class, 'faq'])->name('probiz.faq');
 Route::get('/terms-and-conditions', [ProBizPageController::class, 'terms'])->name('probiz.terms');
