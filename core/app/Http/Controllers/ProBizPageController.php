@@ -222,6 +222,30 @@ class ProBizPageController extends Controller
         ]);
     }
 
+    public function insightAwardMarketingPlaybook()
+    {
+        return view('frontEnd.probiz_pages.insight-award-marketing', $this->baseData() + [
+            'metaTitle' => 'From Trophy to Traction: Turning an Award Win into a Marketing Engine | ProBiz Awards 2026 Dubai',
+            'metaDescription' => 'An award is only the beginning. A practical playbook for turning a business award win into press, social proof, sales content and talent attraction.',
+        ]);
+    }
+
+    public function insightJudgesLookFor()
+    {
+        return view('frontEnd.probiz_pages.insight-judges-look-for', $this->baseData() + [
+            'metaTitle' => 'What Awards Judges Actually Look For in a Winning Entry | ProBiz Awards 2026 Dubai',
+            'metaDescription' => 'Evidence, specificity and story: what independent award judges reward, the mistakes that get entries binned, and how to write an entry that stands out.',
+        ]);
+    }
+
+    public function insightGalaNetworking()
+    {
+        return view('frontEnd.probiz_pages.insight-gala-networking', $this->baseData() + [
+            'metaTitle' => 'The Real ROI of an Awards Gala: The Room, Not Just the Stage | ProBiz Awards 2026 Dubai',
+            'metaDescription' => 'Why savvy founders treat awards galas as networking investments: who is in the room, how to work it, and how to convert one evening into business all year.',
+        ]);
+    }
+
     public function contact()
     {        return view('frontEnd.probiz_pages.contact', $this->baseData() + [
             'metaTitle' => 'Contact ProBiz Awards | Enquiries & Support',
