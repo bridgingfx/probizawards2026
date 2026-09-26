@@ -48,6 +48,7 @@ Route::get('/gallery', [ProBizPageController::class, 'gallery'])->name('Gallery'
 Route::get('/gala-night', [ProBizPageController::class, 'gala'])->name('probiz.gala');
 Route::get('/insights/awards-strategy-uae-2026', [ProBizPageController::class, 'insightAwardsStrategy'])->name('probiz.insight-awards-strategy');
 Route::get('/insights/turning-award-wins-into-marketing-roi', [ProBizPageController::class, 'insightAwardMarketingPlaybook'])->name('probiz.insight-award-marketing');
+Route::get('/insights/awards-as-hiring-advantage-uae', [ProBizPageController::class, 'insightAwardsHiring'])->name('probiz.insight-awards-hiring');
 Route::get('/insights/what-awards-judges-actually-look-for', [ProBizPageController::class, 'insightJudgesLookFor'])->name('probiz.insight-judges-look-for');
 Route::get('/insights/networking-value-awards-galas', [ProBizPageController::class, 'insightGalaNetworking'])->name('probiz.insight-gala-networking');
 Route::get('/contact', [ProBizPageController::class, 'contact'])->name('probiz.contact');

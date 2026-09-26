@@ -230,6 +230,14 @@ class ProBizPageController extends Controller
         ]);
     }
 
+    public function insightAwardsHiring()
+    {
+        return view('frontEnd.probiz_pages.insight-awards-hiring', $this->baseData() + [
+            'metaTitle' => 'Why Award-Winning UAE Companies Win the Talent War Before Interviews Start | ProBiz Awards 2026 Dubai',
+            'metaDescription' => '83% of job seekers research a company before applying — and strong employer brands cut cost-per-hire by half. How UAE employers turn business awards into a genuine hiring advantage.',
+        ]);
+    }
+
     public function insightJudgesLookFor()
     {
         return view('frontEnd.probiz_pages.insight-judges-look-for', $this->baseData() + [
