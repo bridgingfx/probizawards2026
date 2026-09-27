@@ -254,6 +254,14 @@ class ProBizPageController extends Controller
         ]);
     }
 
+    public function insightSpottingVanityAwards()
+    {
+        return view('frontEnd.probiz_pages.insight-spotting-vanity-awards', $this->baseData() + [
+            'metaTitle' => 'Vanity Awards vs Real Awards: How to Spot a Trophy Worth Entering | ProBiz Awards 2026 Dubai',
+            'metaDescription' => 'Not every business award is worth your entry fee. How to tell a credible award from a pay-to-play scheme — the red flags, the questions to ask, and what real recognition looks like.',
+        ]);
+    }
+
     public function contact()
     {        return view('frontEnd.probiz_pages.contact', $this->baseData() + [
             'metaTitle' => 'Contact ProBiz Awards | Enquiries & Support',
