@@ -262,6 +262,14 @@ class ProBizPageController extends Controller
         ]);
     }
 
+    public function insightChoosingRightAward()
+    {
+        return view('frontEnd.probiz_pages.insight-choosing-right-award', $this->baseData() + [
+            'metaTitle' => 'How to Choose the Right Business Award to Enter: A Guide for UAE Business Owners | ProBiz Awards 2026 Dubai',
+            'metaDescription' => 'Not every award is worth your entry fee and your time. A practical guide to matching the right business award to your goals, your audience, and your strengths — before you apply.',
+        ]);
+    }
+
     public function contact()
     {        return view('frontEnd.probiz_pages.contact', $this->baseData() + [
             'metaTitle' => 'Contact ProBiz Awards | Enquiries & Support',
